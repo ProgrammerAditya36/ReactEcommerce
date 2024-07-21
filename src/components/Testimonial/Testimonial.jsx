@@ -13,7 +13,7 @@ const Testimonial = () => {
                     {/* para  */}
                     <h2 className="mb-10 text-center text-2xl font-semibold">
                         What our{" "}
-                        <span className="text-pink-500">customers</span> are
+                        <span className="text-blue-500">customers</span> are
                         saying
                     </h2>
 
@@ -34,7 +34,7 @@ const Testimonial = () => {
                                     drinking vinegar cronut adaptogen squid
                                     fanny pack vaporware.
                                 </p>
-                                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-pink-500" />
+                                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-blue-500" />
                                 <h2 className="title-font text-sm font-medium uppercase tracking-wider text-gray-900">
                                     Kamal Nayan Upadhyay
                                 </h2>
@@ -60,7 +60,7 @@ const Testimonial = () => {
                                     drinking vinegar cronut adaptogen squid
                                     fanny pack vaporware.
                                 </p>
-                                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-pink-500" />
+                                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-blue-500" />
                                 <h2 className="title-font text-sm font-medium uppercase tracking-wider text-gray-900">
                                     S Mishra
                                 </h2>
@@ -84,7 +84,7 @@ const Testimonial = () => {
                                     drinking vinegar cronut adaptogen squid
                                     fanny pack vaporware.
                                 </p>
-                                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-pink-500" />
+                                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-blue-500" />
                                 <h2 className="title-font text-sm font-medium uppercase tracking-wider text-gray-900">
                                     XYZ{" "}
                                 </h2>

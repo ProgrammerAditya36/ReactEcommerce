@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router";
 import Layout from "../../components/Layout/Layout";
+import { useContext } from "react";
+import MyContext from "../../context/MyContext";
+import Loader from "../../components/Loader/Loader";
 
 // productData
 const productData = [
@@ -79,6 +82,8 @@ const productData = [
 
 const AllProduct = () => {
     const navigate = useNavigate();
+    const context = useContext(MyContext);
+    const { getAllProduct, loading } = context;
     return (
         <Layout>
             <div className="py-8">
@@ -88,25 +93,30 @@ const AllProduct = () => {
                         All Products
                     </h1>
                 </div>
-
+                <div className="flex justify-center">
+                    {loading && <Loader />}
+                </div>
                 {/* main  */}
                 <section className="body-font text-gray-600">
                     <div className="container mx-auto px-5 py-5 lg:px-0">
                         <div className="-m-4 flex flex-wrap">
-                            {productData.map((item, index) => {
-                                const { image, title, price } = item;
+                            {getAllProduct.map((item, index) => {
+                                const { productImageUrl, title, price, id } =
+                                    item;
                                 return (
                                     <div
                                         key={index}
-                                        className="w-full p-4 md:w-1/4"
+                                        className="w-full p-4 lg:w-1/4"
                                     >
                                         <div className="h-full cursor-pointer overflow-hidden rounded-xl border border-gray-300 shadow-md">
                                             <img
                                                 onClick={() =>
-                                                    navigate("/productinfo")
+                                                    navigate(
+                                                        `/productInfo/${id}`,
+                                                    )
                                                 }
-                                                className="h-96 w-full lg:h-80"
-                                                src={image}
+                                                className="h-96 w-full object-contain lg:h-80"
+                                                src={productImageUrl}
                                                 alt="blog"
                                             />
                                             <div className="p-6">
@@ -121,7 +131,7 @@ const AllProduct = () => {
                                                 </h1>
 
                                                 <div className="flex justify-center">
-                                                    <button className="w-full rounded-lg bg-pink-500 py-[4px] font-bold text-white hover:bg-pink-600">
+                                                    <button className="w-full rounded-lg bg-blue-500 py-[4px] font-bold text-white hover:bg-blue-600">
                                                         Add To Cart
                                                     </button>
                                                 </div>

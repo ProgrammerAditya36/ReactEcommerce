@@ -8,7 +8,7 @@ const Track = () => {
                     <div className="w-full p-4 sm:w-1/2 md:w-1/3">
                         <div className="rounded-lg border-2 border-gray-200 bg-gray-100 px-4 py-6 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] hover:shadow-xl hover:shadow-gray-200">
                             <svg
-                                className="mb-3 inline-block h-12 w-12 text-pink-600"
+                                className="mb-3 inline-block h-12 w-12 text-blue-600"
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -35,7 +35,7 @@ const Track = () => {
                     <div className="w-full p-4 sm:w-1/2 md:w-1/3">
                         <div className="rounded-lg border-2 border-gray-200 bg-gray-100 px-4 py-6 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] hover:shadow-xl hover:shadow-gray-200">
                             <svg
-                                className="mb-3 inline-block h-12 w-12 text-pink-600"
+                                className="mb-3 inline-block h-12 w-12 text-blue-600"
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ const Track = () => {
                     <div className="w-full p-4 sm:w-1/2 md:w-1/3">
                         <div className="rounded-lg border-2 border-gray-200 bg-gray-100 px-4 py-6 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] hover:shadow-xl hover:shadow-gray-200">
                             <svg
-                                className="mb-3 inline-block h-12 w-12 text-pink-600"
+                                className="mb-3 inline-block h-12 w-12 text-blue-600"
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"

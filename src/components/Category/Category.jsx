@@ -47,7 +47,7 @@ const Category = () => {
                             return (
                                 <div key={index} className="px-3 lg:px-10">
                                     {/* Image  */}
-                                    <div className="mb-1 h-16 w-16 max-w-xs cursor-pointer rounded-full bg-pink-500 transition-all hover:bg-pink-400 lg:h-24 lg:w-24">
+                                    <div className="mb-1 h-16 w-16 max-w-xs cursor-pointer rounded-full bg-blue-500 transition-all hover:bg-blue-400 lg:h-24 lg:w-24">
                                         <div className="mb-12 flex justify-center">
                                             {/* Image tag  */}
                                             <img src={item.image} alt="img" />
