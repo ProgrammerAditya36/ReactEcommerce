@@ -9,7 +9,7 @@ import MyContext from "../../context/MyContext";
 const AdminDashboard = () => {
     const user = JSON.parse(localStorage.getItem("users"));
     const context = useContext(MyContext);
-    const { getAllProduct } = context;
+    const { getAllProduct, getAllOrder, getAllUser } = context;
 
     return (
         <Layout>
@@ -135,7 +135,7 @@ const AdminDashboard = () => {
                                             </svg>
                                         </div>
                                         <h2 className="title-font fonts1 text-3xl font-medium text-blue-400">
-                                            10
+                                            {getAllOrder.length}
                                         </h2>
                                         <p className="font-bold text-blue-500">
                                             Total Order
@@ -166,10 +166,10 @@ const AdminDashboard = () => {
                                             </svg>
                                         </div>
                                         <h2 className="title-font fonts1 text-3xl font-medium text-blue-400">
-                                            10
+                                            {context.getAllUser.length}
                                         </h2>
                                         <p className="font-bold text-blue-500">
-                                            Total Order
+                                            Total Users
                                         </p>
                                     </div>
                                 </Tab>

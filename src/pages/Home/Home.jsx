@@ -14,7 +14,6 @@ const Home = () => {
             <HomePageProductCard />
             <Track />
             <Testimonial />
-            <h1>{name}</h1>
         </Layout>
     );
 };

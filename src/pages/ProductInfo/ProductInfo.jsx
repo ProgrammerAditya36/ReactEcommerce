@@ -5,6 +5,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { fireDb } from "../../firebase/firebaseconfig";
 import Loader from "../../components/Loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, deleteFromCart } from "../../redux/cartSlice";
+import toast from "react-hot-toast";
 const ProductInfo = () => {
     const context = useContext(MyContext);
     const { loading, getAllProduct, setLoading, getAllProductFn } = context;
@@ -17,13 +20,8 @@ const ProductInfo = () => {
             const productTemp = await getDoc(doc(fireDb, "products", id));
             const product = productTemp.data();
             setProduct({
-                title: product?.title,
-                price: product?.price,
-                productImageUrl: product?.productImageUrl,
-                category: product?.category,
-                description: product?.description,
-                time: product?.time,
-                date: product?.date,
+                ...productTemp.data(),
+                id: productTemp.id,
             });
             setLoading(false);
         } catch (err) {
@@ -31,6 +29,29 @@ const ProductInfo = () => {
             setLoading(false);
         }
     };
+    const cartItems = useSelector((state) => state.cart) || [];
+    const dispatch = useDispatch();
+    const addCart = (item) => {
+        dispatch(
+            addToCart({
+                title: item.title,
+                price: item.price,
+                productImageUrl: item.productImageUrl,
+                id: item.id,
+                category: item.category,
+                quantity: 1,
+            }),
+        );
+        toast.success("Product added to cart");
+    };
+
+    const deleteCart = (item) => {
+        dispatch(deleteFromCart(item));
+        toast.error("Product removed from cart");
+    };
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+    }, [cartItems]);
     useEffect(() => {
         getSingleProductFunction();
     }, []);
@@ -134,8 +155,36 @@ const ProductInfo = () => {
                                         </div>
                                         <div className="mb-6" />
                                         <div className="mb-6 flex flex-wrap items-center">
-                                            <button className="w-full rounded-xl border border-blue-600 bg-blue-100 px-4 py-3 text-center text-blue-600 hover:bg-blue-600 hover:text-gray-100">
-                                                Add to Cart
+                                            {cartItems.some(
+                                                (p) => p.id === product.id,
+                                            ) ? (
+                                                <button
+                                                    onClick={() =>
+                                                        deleteCart(product)
+                                                    }
+                                                    className="border--600 w-full rounded-xl border bg-red-500 px-4 py-3 text-center text-white hover:bg-red-600 hover:text-gray-100"
+                                                >
+                                                    Delete From Cart
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={() =>
+                                                        addCart(product)
+                                                    }
+                                                    className="w-full rounded-xl border border-blue-600 bg-blue-100 px-4 py-3 text-center text-blue-600 hover:bg-blue-600 hover:text-gray-100"
+                                                >
+                                                    Add To Cart
+                                                </button>
+                                            )}
+                                        </div>
+                                        <div className="mb-6 flex gap-4">
+                                            <button
+                                                className="w-full rounded-xl border border-transparent bg-blue-600 px-4 py-3 text-center text-gray-100 hover:border-blue-500 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700"
+                                                onClick={() => {
+                                                    navigate("/cart");
+                                                }}
+                                            >
+                                                Buy Now
                                             </button>
                                         </div>
                                     </div>
