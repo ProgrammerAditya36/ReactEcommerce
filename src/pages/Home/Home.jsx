@@ -12,8 +12,6 @@ const Home = () => {
             <HeroSection />
             <Category />
             <HomePageProductCard />
-            <Track />
-            <Testimonial />
         </Layout>
     );
 };

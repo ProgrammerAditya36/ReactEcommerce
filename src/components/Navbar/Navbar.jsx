@@ -40,12 +40,12 @@ const Navbar = () => {
             )}
             {user?.role === "user" && (
                 <li>
-                    <Link to={"/user-dashboard"}>User:{user?.name}</Link>{" "}
+                    <Link to={"/user-dashboard"}>{user?.name}</Link>{" "}
                 </li>
             )}
             {user?.role === "admin" && (
                 <li>
-                    <Link to={"/admin-dashboard"}>Admin:{user?.name}</Link>{" "}
+                    <Link to={"/admin-dashboard"}>{user?.name}</Link>{" "}
                 </li>
             )}
             {user && (
@@ -60,23 +60,24 @@ const Navbar = () => {
         </ul>
     );
     return (
-        <nav className="sticky top-0 bg-blue-600">
+        <nav className="sticky top-0 bg-blue-600 px-3">
             {/* main  */}
             <div className="items-center py-3 lg:flex lg:justify-between lg:px-3">
                 {/* left  */}
                 <div className="left py-3 lg:py-0">
                     <Link to={"/"}>
                         <h2 className="text-center text-2xl font-bold text-white">
-                            E-Bharat
+                            IndiaCommerce
                         </h2>
                     </Link>
                 </div>
+                <SearchBar />
+
                 {/* right  */}
                 <div className="right mb-4 flex justify-center lg:mb-0">
                     {navList}
                 </div>
                 {/* Search Bar  */}
-                <SearchBar />
             </div>
         </nav>
     );

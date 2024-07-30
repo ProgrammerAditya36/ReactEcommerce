@@ -9,18 +9,18 @@ const Footer = () => {
                 <div className="container mx-auto flex flex-col items-center px-5 py-5 sm:flex-row">
                     {/* logo  */}
                     <a className="title-font flex items-center justify-center font-medium text-white md:justify-start">
-                        <span className="text-xl font-bold">E-bharat</span>
+                        <span className="text-xl font-bold">IndiaCommerce</span>
                     </a>
                     {/* para  */}
                     <p className="mt-4 text-sm text-gray-100 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
-                        © 2024 ebharat —
+                        © 2024
                         <Link
                             to={"/"}
                             className="ml-1 text-gray-100"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
-                            @ebharat
+                            indiacommerce
                         </Link>
                     </p>
 
